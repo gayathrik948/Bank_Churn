@@ -1,5 +1,5 @@
 train_model:
-  RandomForestRegressor:
+  RandomForestClassifier:
     max_depth:
     - 5
     - 8
@@ -10,7 +10,7 @@ train_model:
     - 50
     - 100
     - 150
-  XGBRegressor:
+  XGBClassifier:
     learning_rate:
     - 0.01
     - 0.1

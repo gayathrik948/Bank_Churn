@@ -5,7 +5,7 @@ from pandas import DataFrame
 from pymongo.database import Database
 import pandas as pd
 from pymongo import MongoClient
-from bank_churn.constants import DB_URL
+from bank_churn.constants import *
 from bank_churn.exceptions import BankChurnException
 from bank_churn.logger import logging
 
@@ -36,7 +36,7 @@ class MongoDBOperation:
             return db
 
         except Exception as e:
-            raise shippingException(e, sys) from e
+            raise BankChurnException(e, sys) from e
 
     @staticmethod
     def get_collection(database, collection_name) -> Collection:
@@ -59,7 +59,7 @@ class MongoDBOperation:
             return collection
 
         except Exception as e:
-            raise shippingException(e, sys) from e
+            raise BankChurnException(e, sys) from e
 
     def get_collection_as_dataframe(self, db_name, collection_name) -> DataFrame:
 
@@ -92,7 +92,7 @@ class MongoDBOperation:
             return df
 
         except Exception as e:
-            raise shippingException(e, sys) from e
+            raise BankChurnException(e, sys) from e
 
     def insert_dataframe_as_record(self, data_frame, db_name, collection_name) -> None:
         """
@@ -122,4 +122,6 @@ class MongoDBOperation:
             )
 
         except Exception as e:
-            raise shippingException(e, sys) from e
+            raise BankChurnException(e, sys) from e
+
+
