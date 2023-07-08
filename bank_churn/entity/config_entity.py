@@ -31,3 +31,22 @@ class DataValidationConfig:
                                                           DATA_VALIDATION_ARTIFACT_DIR)
         self.DATA_DRIFT_FILE_PATH = os.path.join(self.DATA_VALIDATION_ARTIFACTS_DIR,
                                                  DATA_DRIFT_FILE_NAME)
+
+
+@dataclass
+class DataTransformationConfig:
+    def __init__(self):
+        self.UTILS = MainUtils()
+        self.SCHEMA_CONFIG = self.UTILS.read_yaml_file(SCHEMA_FILE_PATH)
+        self.DATA_TRANSFORMATION_ARTIFACT_DIR = os.path.join(from_root(), ARTIFACTS_DIR,
+                                                             DATA_TRANSFORMATION_ARTIFCATS_DIR)
+        self.TRANSFORMED_TRAIN_ARTIFACT_DATA_DIR = os.path.join(self.DATA_TRANSFORMATION_ARTIFACT_DIR,
+                                                                TRANSFORMED_TRAIN_DATA_DIR)
+        self.TRANSFORMED_TEST_ARTIFACT_DATA_DIR = os.path.join(self.DATA_TRANSFORMATION_ARTIFACT_DIR,
+                                                               TRANSFORMED_TEST_DATA_DIR)
+        self.TRANSFORMED_TRAIN_ARTIFACT_DATA_FILE_NAME = os.path.join(self.TRANSFORMED_TRAIN_ARTIFACT_DATA_DIR,
+                                                                      TRANSFORMED_TRAIN_DATA_FILE_NAME)
+        self.TRANSFORMED_TEST_ARTIFACT_DATA_FILE_NAME = os.path.join(self.TRANSFORMED_TEST_ARTIFACT_DATA_DIR,
+                                                                     TRANSFORMED_TEST_DATA_FILE_NAME)
+        self.PREPROCESSOR_OBJECT_ARTIFACT_FILE_NAME = os.path.join(self.DATA_TRANSFORMATION_ARTIFACT_DIR,
+                                                                   PREPROCESSOR_OBJECT_FILE_NAME)
