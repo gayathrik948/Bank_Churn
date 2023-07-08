@@ -1,28 +1,29 @@
 columns:
-  - LIMIT_BAL: int
-  -	SEX: int
-  -	EDUCATION: int
-  -	MARRIAGE: int
-  -	AGE: int
-  -	PAY_0: int
-  -	PAY_1: int
-  -	PAY_2: int
-  -	PAY_3: int
-  -	PAY_4: int
-  -	PAY_5: int
-  -	BILL_AMT1: int
-  -	BILL_AMT2: int
-  -	BILL_AMT3: int
-  -	BILL_AMT4: int
-  -	BILL_AMT5: int
-  -	BILL_AMT6: int
-  -	PAY_AMT1: int
-  -	PAY_AMT2: int
-  -	PAY_AMT3: int
-  -	PAY_AMT4: int
-  -	PAY_AMT5: int
-  - PAY_AMT6: int
-  -	class: int
+  - LIMIT_BAL: float64
+  - SEX: float64
+  - EDUCATION: float64
+  - MARRIAGE: float64
+  - AGE: float64
+  - PAY_0: float64
+  - PAY_1: float64
+  - PAY_2: float64
+  - PAY_3: float64
+  - PAY_4: float64
+  - PAY_5: float64
+  - BILL_AMT1: float64
+  - BILL_AMT2: float64
+  - BILL_AMT3: float64
+  - BILL_AMT4: float64
+  - BILL_AMT5: float64
+  - BILL_AMT6: float64
+  - PAY_AMT1: float64
+  - PAY_AMT2: float64
+  - PAY_AMT3: float64
+  - PAY_AMT4: float64
+  - PAY_AMT5: float64
+  - PAY_AMT6: float64
+  - class: float64
+
 
 numerical_columns:
   - LIMIT_BAL
