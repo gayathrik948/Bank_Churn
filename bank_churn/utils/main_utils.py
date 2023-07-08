@@ -6,7 +6,7 @@ import xgboost
 import numpy as np
 import yaml
 from pandas import DataFrame
-from sklearn.metrics import r2_score
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from sklearn.utils import all_estimators
 from yaml import safe_dump
@@ -82,7 +82,7 @@ class MainUtils:
     def get_model_score(test_y: DataFrame, preds: DataFrame) -> float:
         logging.info("Entered the get_model_score method of MainUtils class")
         try:
-            model_score = r2_score(test_y, preds)
+            model_score = accuracy_score(test_y, preds)
             logging.info("Model score is {}".format(model_score))
             logging.info("Exited the get_model_score method of MainUtils class")
             return model_score

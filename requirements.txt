@@ -11,7 +11,7 @@ python-multipart
 ipykernel
 matplotlib
 PyYAML
-sklearn
+scikit-learn==1.2.2
 seaborn
 from-root
 xgboost

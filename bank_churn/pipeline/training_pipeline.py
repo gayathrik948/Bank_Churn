@@ -1,8 +1,11 @@
 from bank_churn.components.data_ingestion import DataIngestion
 from bank_churn.components.data_validation import DataValidation
 from bank_churn.components.data_transformation import DataTransformation
-from bank_churn.entity.artifacts_entity import (DataIngestionArtifacts, DataValidationArtifacts, DataTransformationArtifacts)
-from bank_churn.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig)
+from bank_churn.components.model_trainer import ModelTrainer
+from bank_churn.entity.artifacts_entity import (DataIngestionArtifacts, DataValidationArtifacts,
+                                                DataTransformationArtifacts, ModelTrainerArtifacts)
+from bank_churn.entity.config_entity import (DataIngestionConfig, DataValidationConfig,
+                                             DataTransformationConfig, ModelTrainerConfig)
 from bank_churn.configuration.mongo_operations import MongoDBOperation
 from bank_churn.exceptions import BankChurnException
 import sys
@@ -12,6 +15,7 @@ class TrainingPipeline:
         self.data_ingestion_config = DataIngestionConfig()
         self.data_validation_config = DataValidationConfig()
         self.data_transformation_config = DataTransformationConfig()
+        self.model_trainer_config = ModelTrainerConfig()
         self.mongo_op = MongoDBOperation()
 
     def start_data_ingestion(self)->DataIngestionArtifacts:
@@ -41,11 +45,21 @@ class TrainingPipeline:
         except Exception as e:
             raise BankChurnException(e, sys)
 
+    def start_model_trainer(self, data_transformation_artifacts:DataTransformationArtifacts)->ModelTrainerArtifacts:
+        try:
+            model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifacts,
+                                         model_trainer_config=self.model_trainer_config)
+            model_trainer_artifacts = model_trainer.initiate_model_trainer()
+            return model_trainer_artifacts
+        except Exception as e:
+            raise BankChurnException(e, sys)
+
     def run_pipeline(self):
         try:
             data_ingestion_artifact = self.start_data_ingestion()
             data_validation_artifacts = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
             data_transformation_artifacts = self.start_data_transformation(data_ingestion_artifact=data_ingestion_artifact)
+            model_trainer_artifacts = self.start_model_trainer(data_transformation_artifacts=data_transformation_artifacts)
         except Exception as e:
             raise BankChurnException(e,sys)
 
