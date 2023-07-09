@@ -39,5 +39,5 @@ MODEL_SAVE_FORMAT = ".pkl"
 BUCKET_NAME = "bank-churn-model-files"
 S3_MODEL_NAME = "bank_churn_model.pkl"
 
-APP_HOST = "127.0.0.1"
+APP_HOST = "0.0.0.0"
 APP_PORT = 8080
