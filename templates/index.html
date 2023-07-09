@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shipping Cost Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container-fluid">
+        </div>
+     </nav>
+    <section>
+        <div class="container-fluid">
+            <div class="container">
+                <form action="/predict" method="post">
+                    <legend>Bank Churn Prediction</legend>
+
+                      <div class="mb-3">
+                        <label for="LIMIT_BAL">LIMIT_BAL</label>
+                        <input type="number" class="form-control" id="LIMIT_BAL" name="LIMIT_BAL" placeholder="float" required="required">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="SEX">SEX</label>
+                        <input type="number" class="form-control" id="SEX" name="SEX" placeholder="float" required="required">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="EDUCATION">EDUCATION</label>
+                        <input type="number" class="form-control" id="EDUCATION" name="EDUCATION" placeholder="float" required="required">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="MARRIAGE">MARRIAGE</label>
+                        <input type="number" class="form-control" id="MARRIAGE" name="MARRIAGE" placeholder="float" required="required">
+                      </div>
+
+
+                      <div class="mb-3">
+                        <label for="AGE">AGE</label>
+                        <input type="number" class="form-control" id="AGE" name="AGE" placeholder="float" required="required">
+                      </div>
+
+
+                      <div class="mb-3">
+                        <label for="PAY_0">PAY_0</label>
+                        <input type="number" class="form-control" id="PAY_0" name="PAY_0" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_1">PAY_1</label>
+                        <input type="number" class="form-control" id="PAY_1" name="PAY_1" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_2">PAY_2</label>
+                        <input type="number" class="form-control" id="PAY_2" name="PAY_2" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_3">PAY_3</label>
+                        <input type="number" class="form-control" id="PAY_3" name="PAY_3" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_4">PAY_4</label>
+                        <input type="number" class="form-control" id="PAY_4" name="PAY_4" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_5">PAY_5</label>
+                        <input type="number" class="form-control" id="PAY_5" name="PAY_5" placeholder="float" required="required">
+                      </div>
+
+
+					  <div class="mb-3">
+                        <label for="BILL_AMT1">BILL_AMT1</label>
+                        <input type="number" class="form-control" id="BILL_AMT1" name="BILL_AMT1" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="BILL_AMT2">BILL_AMT2</label>
+                        <input type="number" class="form-control" id="BILL_AMT2" name="BILL_AMT2" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="BILL_AMT3">BILL_AMT3</label>
+                        <input type="number" class="form-control" id="BILL_AMT3" name="BILL_AMT3" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="BILL_AMT4">BILL_AMT4</label>
+                        <input type="number" class="form-control" id="BILL_AMT4" name="BILL_AMT4" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="BILL_AMT5">BILL_AMT5</label>
+                        <input type="number" class="form-control" id="BILL_AMT5" name="BILL_AMT5" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="BILL_AMT6">BILL_AMT6</label>
+                        <input type="number" class="form-control" id="BILL_AMT6" name="BILL_AMT6" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_AMT1">PAY_AMT1</label>
+                        <input type="number" class="form-control" id="PAY_AMT1" name="PAY_AMT1" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_AMT2">PAY_AMT2</label>
+                        <input type="number" class="form-control" id="PAY_AMT2" name="PAY_AMT2" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_AMT3">PAY_AMT3</label>
+                        <input type="number" class="form-control" id="PAY_AMT3" name="PAY_AMT3" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_AMT4">PAY_AMT4</label>
+                        <input type="number" class="form-control" id="PAY_AMT4" name="PAY_AMT4" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_AMT5">PAY_AMT5</label>
+                        <input type="number" class="form-control" id="PAY_AMT5" name="PAY_AMT5" placeholder="float" required="required">
+                      </div>
+
+					  <div class="mb-3">
+                        <label for="PAY_AMT6">PAY_AMT6</label>
+                        <input type="number" class="form-control" id="PAY_AMT6" name="PAY_AMT6" placeholder="float" required="required">
+                      </div>
+
+                        <input class="btn btn-primary" type="submit" value="Predict" required />
+                    </div>
+
+                </form>
+            </div>
+            <div class="text-center text-black">
+                <h2 class="display-4 fw-bolder">The Customer is  {{context}} </h2>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(".input").focus(function(){
+            $(this).parent().addClass("focus");
+        }).blur(function(){
+            if($(this).val() === ''){
+                $(this).parent().removeClass("focus");
+            }
+        })
+    </script>
+  </body>
+</html>
